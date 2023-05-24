@@ -30,7 +30,7 @@ export default function App() {
             <li>
               <label>
                 <input type="checkbox" checked={todo.completed} />
-                {todo.title};
+                {todo.title}
               </label>
               <button className="btn btn-danger">Delete</button>
             </li>
