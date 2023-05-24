@@ -4,7 +4,7 @@ import './styles.css'
 
 export default function App() {
   const [newItem, setNewItem] = useState("") //useState takes in initial value (in this case an empty string) for input text box
-  const [todos, setTodos] = useState([]); //gets the todos so far as an array
+  const [todos, setTodos] = useState([]); //gets the todos so far as an array, starts off as an empty array 
 
   function handleSubmit(e) {
     e.preventDefault();
