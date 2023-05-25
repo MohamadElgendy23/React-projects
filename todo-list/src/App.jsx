@@ -10,11 +10,23 @@ export default function App() {
     e.preventDefault(); //makes it so the page doesn't reload before
     setTodos((currentTodos) => {
       return [
-        ...currentTodos,
+        ...currentTodos, //can't directly mutate todos because states are IMMUTABLE. so have to use spread operator!
         { id: crypto.randomUUID(), title: newItem, completed: false },
       ];
     });
-    setNewItem("");
+    setNewItem(""); //sets newItem to empty string (the input with id = "item" becomes empty so that user can enter new item)
+  }
+
+  //when you press the check box, it should cross out (toggle) the todo item in currentTodos. if not toggled, return the current todos untoggled
+  function toggleTodo(id, completed) {
+    setTodos((currentTodos) => {
+      return currentTodos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed };
+        }
+        return todo;
+      });
+    });
   }
   return (
     <>
