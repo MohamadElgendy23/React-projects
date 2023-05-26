@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NewTodoForm } from "./NewTodoForm";
 import "./styles.css";
 import { TodoList } from "./TodoList";
 
 //App component -- component that main.js can render to create the UI
 export default function App() {
-  const [todos, setTodos] = useState([]); //gets the todos so far as an array, starts off as an empty array
+  const [todos, setTodos] = useState(() => {
+    const localValue = localStorage.getItem("ITEMS");
+    //starts off as an empty array if nothing in todos
+    if (localValue === null) {
+      return [];
+    }
+    //show persisting data every state instance
+    return JSON.parse(localValue);
+  });
+  //makes data persist (not dissappear) even when reloading
+  useEffect(() => {
+    localStorage.setItem("ITEMS", JSON.stringify(todos));
+  }, [todos]);
 
   function addTodo(title) {
     setTodos((currentTodos) => {
@@ -39,7 +51,7 @@ export default function App() {
     <>
       <NewTodoForm onAdd={addTodo} />
       <h1 className="header">Todo List</h1>
-      <TodoList todos = {todos}/>
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </>
   );
 }
