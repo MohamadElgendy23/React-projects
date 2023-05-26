@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { TodoList } from "./TodoList";
 
 //component for the new todo form (contains label, input, and button)
