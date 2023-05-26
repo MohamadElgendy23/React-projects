@@ -1,11 +1,12 @@
-//App component -- component that main.js can render to create the UI
 import { useState } from "react";
 import "./styles.css";
 
+//App component -- component that main.js can render to create the UI
 export default function App() {
   const [newItem, setNewItem] = useState(""); //useState takes in initial value (in this case an empty string) for input text box
   const [todos, setTodos] = useState([]); //gets the todos so far as an array, starts off as an empty array
 
+  //handles when form has been submitted
   function handleSubmit(e) {
     e.preventDefault(); //makes it so the page doesn't reload before
     setTodos((currentTodos) => {
@@ -25,6 +26,15 @@ export default function App() {
           return { ...todo, completed };
         }
         return todo;
+      });
+    });
+  }
+  //when you press the delete button. it should delete the todo with id = passed in id.
+  function deleteTodo(id) {
+    setTodos((currentTodos) => {
+      //this makes it to where only todo items that have an id equal to passed in id become deleted.
+      return currentTodos.filter((todo) => {
+        return todo.id !== id;
       });
     });
   }
@@ -55,7 +65,12 @@ export default function App() {
                 />
                 {todo.title}
               </label>
-              <button className="btn btn-danger">Delete</button>
+              <button
+                className="btn btn-danger"
+                onClick={() => deleteTodo(todo.id)}
+              >
+                Delete
+              </button>
             </li>
           );
         })}
