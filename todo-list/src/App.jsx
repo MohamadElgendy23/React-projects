@@ -14,7 +14,7 @@ export default function App() {
     //show persisting data every state instance
     return JSON.parse(localValue);
   });
-  //makes data persist (not dissappear) even when reloading
+  //makes data persist (not dissappear) even when reloading when todos is "altered" in anyway
   useEffect(() => {
     localStorage.setItem("ITEMS", JSON.stringify(todos));
   }, [todos]);
