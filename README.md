@@ -1,4 +1,4 @@
-React projects
+REACT PROJECTS 
 
 1) Todo-List: 
 >Simple app that lets the user enter items that needs to be completed (todo-items) and said items are shown in the todo-items list.
