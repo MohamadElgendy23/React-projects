@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useEffect } from 'react';
 import { TodoList } from "./TodoList";
 
 //component for the new todo form (contains label, input, and button)
 export function NewTodoForm() {
+  const [newItem, setNewItem] = useState("");
   const [todos, setTodos] = useState(() => {
     const localValue = localStorage.getItem("ITEMS");
     //starts off as an empty array if nothing in todos
