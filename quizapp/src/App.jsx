@@ -1,9 +1,8 @@
-import { useState } from "react";
 import "./styles.css";
+import StartQuizPage from "./StartQuizPage.jsx";
 
+//App component for the Quiz App. Renders out the start page. 
 export default function App() {
-  const [count, setCount] = useState(0);
-
-  return;
+  return <StartQuizPage />
 }
 
