@@ -10,7 +10,13 @@ export default function StartQuizPage() {
       <form className="StartQuizForm">
         <h1>Quiz Settings</h1>
         <br></br>
-        <input id="EnterName" type="text" value={name} onChange={e => setName(e.target.value)}></input>
+        <input
+          id="EnterName"
+          type="text"
+          value={name}
+          onClick={(e) => (e.target.value = "")}
+          onChange={(e) => setName(e.target.value)}
+        ></input>
         <br></br>
         <br></br>
         <select id="Topic">
