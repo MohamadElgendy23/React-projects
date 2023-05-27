@@ -1,8 +1,3 @@
-import { useState } from "react";
-
-export default function Questions () {
-    return (
-        <div>Hello!</div>
-    )
-    
+export default function Questions() {
+  return <h1 id="Question">"Hello!"</h1>;
 }

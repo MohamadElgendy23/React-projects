@@ -1,16 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Questions from "./Questions.jsx";
 
 //this component contains the start page (front page) for the quiz app
 export default function StartQuizPage() {
   const [name, setName] = useState("Enter Your Name"); //for the user's inputted name
   const [topic, setTopic] = useState(""); //for the user's selected quiz topic
 
-  function handleSubmit() {
-    const navigate = useNavigate();
-    navigate.push("Questions.jsx");
-   
-  }
+  const navigate = useNavigate(); //used for navigating between pages
+
   return (
     <>
       <h1 id="QuizApp">Welcome to the Quiz App!</h1>
@@ -36,7 +34,7 @@ export default function StartQuizPage() {
         <br></br>
         <br></br>
         <br></br>
-        <button id="Submit" onClick={handleSubmit}>
+        <button id="Submit" onClick={navigate("./Questions")}>
           Start Quiz!
         </button>
       </form>
