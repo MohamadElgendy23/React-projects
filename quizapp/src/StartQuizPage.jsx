@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Questions from "./Questions.jsx";
+import { Link } from 'react-router-dom';
 
 //this component contains the start page (front page) for the quiz app
 export default function StartQuizPage() {
@@ -34,7 +34,8 @@ export default function StartQuizPage() {
         <br></br>
         <br></br>
         <br></br>
-        <button id="Submit" onClick={navigate("./Questions")}>
+        <Link to="/questions">Questions</Link>
+        <button id="Submit" onSubmit={() => navigate("/questions")}>
           Start Quiz!
         </button>
       </form>
