@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import Questions from "./Questions";
+import { Routes, Route } from "react-router-dom";
 
 //this component contains the start page (front page) for the quiz app
 export default function StartQuizPage() {
-  const [name, setName] = useState("Enter Your Name"); //for the user's inputted name
+  const [name, setName] = useState(""); //for the user's inputted name
   const [topic, setTopic] = useState(""); //for the user's selected quiz topic
 
   const navigate = useNavigate(); //used for navigating between pages
@@ -20,7 +21,7 @@ export default function StartQuizPage() {
           id="EnterName"
           type="text"
           value={name}
-          onClick={(e) => (e.target.value = "")}
+          placeholder="Enter Your Name"
           onChange={(e) => setName(e.target.value)}
         ></input>
         <br></br>
