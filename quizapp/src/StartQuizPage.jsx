@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 //this component contains the start page (front page) for the quiz app
 export default function StartQuizPage() {
@@ -13,7 +13,7 @@ export default function StartQuizPage() {
     <>
       <h1 id="QuizApp">Welcome to the Quiz App!</h1>
       <img src="https://www.icomedia.eu/wp-content/uploads/2017/06/Its-Quiz-Time-Logo.png"></img>
-      <form className="StartQuizForm">
+      <form onSubmit={() => navigate("/questions")} className="StartQuizForm">
         <h1>Quiz Settings</h1>
         <br></br>
         <input
@@ -34,10 +34,7 @@ export default function StartQuizPage() {
         <br></br>
         <br></br>
         <br></br>
-        <Link to="/questions">Questions</Link>
-        <button id="Submit" onSubmit={() => navigate("/questions")}>
-          Start Quiz!
-        </button>
+        <button id="Submit">Start Quiz!</button>
       </form>
     </>
   );
