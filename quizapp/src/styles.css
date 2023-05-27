@@ -5,16 +5,52 @@ body {
 
 #QuizApp {
   text-align: center;
-  color:crimson;
+  background: linear-gradient(to right, rgb(0, 153, 255) 25%, rgb(194, 20, 20) 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 75px;
   font-style: italic;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+  top:-70px;
+  right: -630px;
   width: 555px;
-  height: 555px;
+  height: 500px;
 }
+
+.StartQuizForm {
+  position: relative;
+  top:-130px;
+  right: -800px;
+  width: 555px;
+  height: 500px;
+}
+
+.StartQuizForm > h1 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#EnterName {
+  position: relative;
+  bottom:15px;
+  right: 150px;
+  width: 500px;
+  height: 50px;
+  text-align: center;
+  font-size: larger;
+}
+
+#Topic {
+  position: relative;
+  bottom:15px;
+  right: 150px;
+  width: 510px;
+  height: 50px;
+  text-align: center;
+  font-size: larger;
+}
+
+
