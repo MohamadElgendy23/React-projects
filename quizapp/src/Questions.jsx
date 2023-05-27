@@ -1,5 +1,6 @@
 import { useState } from "react";
 
 export default function Questions () {
-    const [question, setQuestion] = useState("N/A");
+    const [name, setName] = useState("Enter Your Name");
+    
 }
