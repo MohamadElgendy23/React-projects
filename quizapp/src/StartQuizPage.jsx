@@ -1,8 +1,16 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 //this component contains the start page (front page) for the quiz app
 export default function StartQuizPage() {
   const [name, setName] = useState("Enter Your Name"); //for the user's inputted name
+  const [topic, setTopic] = useState(""); //for the user's selected quiz topic
+
+  function handleSubmit() {
+    const navigate = useNavigate();
+    navigate.push("Questions.jsx");
+   
+  }
   return (
     <>
       <h1 id="QuizApp">Welcome to the Quiz App!</h1>
@@ -19,7 +27,7 @@ export default function StartQuizPage() {
         ></input>
         <br></br>
         <br></br>
-        <select id="Topic">
+        <select id="Topic" onChange={(e) => setTopic(e.target.value)}>
           <option>Select Quiz Topic</option>
           <option>Computer Science</option>
           <option>Math</option>
@@ -28,7 +36,9 @@ export default function StartQuizPage() {
         <br></br>
         <br></br>
         <br></br>
-        <button id="Submit">Start Quiz!</button>
+        <button id="Submit" onClick={handleSubmit}>
+          Start Quiz!
+        </button>
       </form>
     </>
   );
