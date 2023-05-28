@@ -1,19 +1,24 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import QuizQuestions from "./QuizQuestions";
 
 //this component contains the start page (front page) for the quiz app
 export default function StartQuizPage() {
   const [name, setName] = useState(""); //for the user's inputted name
   const [topic, setTopic] = useState(""); //for the user's selected quiz topic
 
+  //navigates to a specific question page based on the category (topic) and id (question 1-4) => path="quizquestions/:category/:id"
+  function navigateToQuestionPage() {
+    
+  }
   const navigate = useNavigate(); //used for navigating between pages
 
   return (
     <>
       <h1 id="QuizApp">Welcome to the Quiz App!</h1>
-      <img src="https://www.icomedia.eu/wp-content/uploads/2017/06/Its-Quiz-Time-Logo.png"></img>
+      <img src="https://www.icomedia.eu/wp-content/uploads/2017/06/Its-Quiz-Time-Logo.png" loading="lazy"></img>
       <form
-        onSubmit={() => navigate("/firstquestion")}
+        onSubmit={navigateToQuestionPage}
         className="StartQuizForm"
       >
         <h1>Quiz Settings</h1>
