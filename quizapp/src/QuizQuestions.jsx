@@ -83,6 +83,12 @@ const QuizQuestions = [
       answerChoices: ["Ireland", "Ukraine", "Turkey", "USA"],
       answer: "Ireland",
     },
+    {
+      id: 4,
+      question: "What is the captial of Alabama?",
+      answerChoices: ["Birmingham", "Montgomery", "Tuscaloosa", "Tuscon"],
+      answer: "Montgomery",
+    },
   ],
 ];
 

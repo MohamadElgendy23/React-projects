@@ -80,3 +80,22 @@ img {
 
 }
 
+#Topic {
+  position: relative;
+  bottom:-70px;
+  right: -325px;
+  width: 510px;
+  height: 50px;
+  text-align: center;
+  font-size: xx-large;
+}
+
+#Score {
+  position: relative;
+  right: -900px;
+  width: 510px;
+  height: 50px;
+  text-align: center;
+  font-size: xx-large;
+}
+
