@@ -7,4 +7,4 @@ REACT PROJECTS
   >App.jsx only renders one component (as recommended) while every other component deals with its own task for the UI.
 
 2) Quiz App:
-
+>A quiz app that is visually appealing and offers users the ability to enter their name and select what topic of questions they want to be quizzed on. The topics are CS, Math, and Geography. 
