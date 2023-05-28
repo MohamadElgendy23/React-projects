@@ -11,7 +11,6 @@ export default function StartQuizPage() {
 
   //handle page navigation using the path for each topic
   function handleNavigation() {
-    console.log(topic);
     if (topic === "Computer Science") {
       navigate(`quizquestions/${topic}/${QuizQuestions[0][0].id}`);
     } else if (topic === "Math") {
