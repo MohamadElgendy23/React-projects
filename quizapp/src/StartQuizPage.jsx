@@ -9,17 +9,16 @@ export default function StartQuizPage() {
 
   const navigate = useNavigate(); //used for navigating between pages
 
-  //navigates to a specific question page based on the category (topic) and id (question 1-4) => path="quizquestions/:category/:id"
-  /* function navigateToQuestionPage(theName, theTopic) {
-    if (theTopic === "Computer Science") {
-      navigate(`quizquestions/${QuizQuestions[0]}/${QuizQuestions[0][0].id}`);
-    } else if (theTopic === "Math") {
-      navigate(`quizquestions/${QuizQuestions[1]}/${QuizQuestions[1][0].id}`);
+  //handle page navigation using the path for each topic
+  function handleNavigation() {
+    if (topic === "Computer Science") {
+      navigate(`quizquestions/${topic}/${QuizQuestions[0][0].id}`);
+    } else if (topic === "Math") {
+      navigate(`quizquestions/${topic}/${QuizQuestions[1][0].id}`);
     } else {
-      navigate(`quizquestions/${QuizQuestions[2]}/${QuizQuestions[2][0].id}`);
+      navigate(`quizquestions/${topic}/${QuizQuestions[2][0].id}`);
     }
   }
- */
   return (
     <>
       <h1 id="QuizApp">Welcome to the Quiz App!</h1>
@@ -27,10 +26,8 @@ export default function StartQuizPage() {
         src="https://www.icomedia.eu/wp-content/uploads/2017/06/Its-Quiz-Time-Logo.png"
         loading="lazy"
       ></img>
-      <form
-        //onSubmit={navigateToQuestionPage(name, topic)}
-        className="StartQuizForm"
-      >
+
+      <form onSubmit={handleNavigation} className="StartQuizForm">
         <h1>Quiz Settings</h1>
         <br></br>
         <input
