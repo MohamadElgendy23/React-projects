@@ -5,7 +5,7 @@ export default function FirstQuestionPage({ name, topic }) {
   return (
     <>
       <h1 id="QuizApp">Welcome to the Quiz App!</h1>
-      <label className="WelcomeName">{"Welcome, " + name}</label>
+      <label className="WelcomeName">{"Mohamad Elgendy"}</label>
     </>
   );
 }
