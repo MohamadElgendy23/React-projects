@@ -1,9 +1,11 @@
 import QuizQuestions from "./QuizQuestions";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 //the question page of the quiz app. contains the answers choices for the question (that users can select) as well as the actual question. this page loads based on the id of the question and what kind of topic (clean page reuse)
-export default function QuestionPage({ name, topic }) {
+export default function QuestionPage({ Questions }) {
   const [score, setScore] = useState(""); //keeps track of the score out of 4 (4 questions) for each topic.
+  const [category, id] = useParams(); //gets params from params passed into the path (format is :category and :id)
 
   return (
     <>
