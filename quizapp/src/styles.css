@@ -65,15 +65,18 @@ img {
 }
 
 .WelcomeName {
-  color: black;
+  color:ghostwhite;
   position: relative;
   top:40px;
   right: -710px;
   font-size: xx-large;
-  font-weight:lighter;
+  font-weight:bold;
+  font-style: oblique;
   border: 1.5px solid black;
   border-width: 40px;
   border-style:ridge;
   border-color: rgb(88, 42, 10);
+  background-color: black;
+
 }
 
