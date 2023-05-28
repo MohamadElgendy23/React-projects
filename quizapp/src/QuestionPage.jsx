@@ -5,7 +5,7 @@ import Question from "./Question";
 //the question page of the quiz app. contains the User information and selected information as well as the question (from question.jsx)
 export default function QuestionPage({ Questions }) {
   const [score, setScore] = useState(""); //keeps track of the score out of 4 (4 questions) for each topic.
-  const [category, id] = useParams(); //gets params from params passed into the path (format is :category)
+  const { category, id } = useParams(); //gets params from params passed into the path (format is :category && :id)
   return (
     <>
       <h1 id="QuizApp">Welcome to the Quiz App!</h1>

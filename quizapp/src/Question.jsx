@@ -2,6 +2,6 @@
 
 export default function Question({ Questions, Category }) {
   return (
-    
+    "Hi"
   );
 }
