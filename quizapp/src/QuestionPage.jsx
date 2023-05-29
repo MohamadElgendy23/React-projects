@@ -24,7 +24,12 @@ export default function QuestionPage({ Questions }) {
 
   //navigate to game over page if user answers all questions (index > 3)
   {
-    index > 3 && navigate("/gameover");
+    index > 3 && (
+      <h1>
+        `Game over! Your score is $
+        {score / Questions[mapTopicToIndices(category)].length}`
+      </h1>
+    );
   }
   let questionObj = Questions[mapTopicToIndices(category)][index]; //each question (each object inside a topic array)
 
@@ -36,8 +41,6 @@ export default function QuestionPage({ Questions }) {
     }
     setIndex((index) => index + 1);
   }
-
-  //gets the score of the user after user finishes answering all questions => (score/4). used in gameoverpage.jsx
 
   return (
     <>
