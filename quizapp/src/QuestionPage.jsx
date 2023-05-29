@@ -8,7 +8,7 @@ export default function QuestionPage({ Questions }) {
   const [score, setScore] = useState(0); //keeps track of the score out of 4 (4 questions) for each topic.
   const [index, setIndex] = useState(0); //keeps track of the index (question index in the array) (index: 0-3)
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //used for navigating to the start quiz page
 
   //maps topic/category to indices (topic indices) for easy array mapping
   const mapTopicToIndices = (topic) => {
