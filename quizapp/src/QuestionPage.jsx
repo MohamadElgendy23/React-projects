@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Question from "./Question";
 
 //the question page of the quiz app. contains the User information and selected information as well as the question (from question.jsx)
@@ -7,6 +7,8 @@ export default function QuestionPage({ Questions }) {
   const { name, category } = useParams(); //gets params from params passed into the path (format is :name && :category)
   const [score, setScore] = useState(0); //keeps track of the score out of 4 (4 questions) for each topic.
   const [index, setIndex] = useState(0); //keeps track of the index (question index in the array) (index: 0-3)
+
+  const navigate = useNavigate();
 
   //maps topic/category to indices (topic indices) for easy array mapping
   const mapTopicToIndices = (topic) => {
@@ -31,7 +33,7 @@ export default function QuestionPage({ Questions }) {
             Game over! Your score is: {score} {"/"}{" "}
             {Questions[mapTopicToIndices(category)].length}
           </h1>
-          <button onClick={() => Navigate()}>Another Quiz!</button>
+          <button onClick={() => navigate("/")}>Another Quiz!</button>
         </div>
       );
     }
