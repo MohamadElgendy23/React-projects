@@ -12,11 +12,11 @@ export default function StartQuizPage() {
   //handle page navigation using the path for each topic
   function handleNavigation() {
     if (topic === "Computer Science") {
-      navigate(`quizquestions/${name}/${topic}/${QuizQuestions[0][0].id}`);
+      navigate(`quizquestions/${name}/${topic}`);
     } else if (topic === "Math") {
-      navigate(`quizquestions/${name}/${topic}/${QuizQuestions[1][0].id}`);
+      navigate(`quizquestions/${name}/${topic}`);
     } else {
-      navigate(`quizquestions/${name}/${topic}/${QuizQuestions[2][0].id}`);
+      navigate(`quizquestions/${name}/${topic}`);
     }
   }
   return (
