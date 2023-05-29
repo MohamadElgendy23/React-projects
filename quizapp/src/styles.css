@@ -65,7 +65,7 @@ img {
 }
 
 .WelcomeName {
-  color:rgb(119, 113, 98);
+  color:rgb(10, 61, 244);
   position: relative;
   top:40px;
   right: -710px;
@@ -75,7 +75,7 @@ img {
   border: 1.5px solid black;
   border-width: 40px;
   border-style:ridge;
-  border-color: rgb(88, 42, 10);
+  border-color: rgb(16, 57, 1);
   background-color: rgb(88, 42, 10);
 
 }
@@ -109,6 +109,24 @@ img {
   position: relative;
   top:15px;
   right: -100px;
+}
+
+.QuestionForm > p {
+  position: relative;
+  right: -50px;
+  text-decoration: underline;
+}
+
+.answerchoicesbuttons {
+  display: grid;
+  grid-template-columns: 20px 250px;
+  grid-auto-rows: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+#finishedquiz {
+  color:black;
 }
 
 

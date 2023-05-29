@@ -8,7 +8,7 @@ export default function QuestionPage({ Questions }) {
   const [score, setScore] = useState(0); //keeps track of the score out of 4 (4 questions) for each topic.
   const [index, setIndex] = useState(0); //keeps track of the index (question index in the array) (index: 0-3)
 
-  //maps topic/category to indices for easy array mapping
+  //maps topic/category to indices (topic indices) for easy array mapping
   const mapTopicToIndices = (topic) => {
     switch (topic) {
       case "Computer Science":
@@ -24,7 +24,8 @@ export default function QuestionPage({ Questions }) {
 
   //when user selects an answer out of the possible answers
   function handleAnswerSelect(event) {
-    if (event.target.value === questionObj.answer) {
+    //answer choice is the right answer
+    if (event.target.innerHTML === questionObj.answer) {
       setScore((score) => score + 1);
     }
     setIndex((index) => index + 1);

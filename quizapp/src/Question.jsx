@@ -3,11 +3,16 @@
 export default function Question({ questionObj, handleAnswerSelect }) {
   return (
     <div className="QuestionForm">
+      {questionObj === null && <h1 id="finishedquiz">No more questions!</h1>}
       <h1>Question {questionObj.id}:</h1>
       <p>{questionObj.question}</p>
       {questionObj.answerChoices.map((answerChoice, index) => {
         return (
-          <button key={index} onClick={handleAnswerSelect}>
+          <button
+            className="answerchoicesbuttons"
+            key={index}
+            onClick={handleAnswerSelect}
+          >
             {answerChoice}
           </button>
         );
