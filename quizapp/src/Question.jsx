@@ -34,7 +34,7 @@ export default function Question({ Questions, Category, ID }) {
       <p>{Questions[mapTopicToIndices(Category)][ID - 1].question}</p>
       {Questions.filter((question) => question[ID - 1].id === ID).map(
         (question) => {
-          return <button>{question[ID - 1].answerChoices[key - 1]}</button>;
+          return <button>{question[ID - 1].answerChoices[++1]}</button>;
         }
       )}
     </form>
