@@ -99,3 +99,18 @@ img {
   font-size: xx-large;
 }
 
+.QuestionForm {
+  position: relative;
+  top:50px;
+  right: -710px;
+}
+
+.QuestionForm > h1 {
+  position: relative;
+  top:15px;
+  right: -100px;
+}
+
+
+
+
