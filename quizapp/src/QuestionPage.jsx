@@ -1,15 +1,12 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Question from "./Question";
-import { useNavigate } from "react-router-dom";
 
 //the question page of the quiz app. contains the User information and selected information as well as the question (from question.jsx)
 export default function QuestionPage({ Questions }) {
   const { name, category } = useParams(); //gets params from params passed into the path (format is :name && :category)
   const [score, setScore] = useState(0); //keeps track of the score out of 4 (4 questions) for each topic.
   const [index, setIndex] = useState(0); //keeps track of the index (question index in the array) (index: 0-3)
-
-  const navigate = useNavigate();
 
   //maps topic/category to indices (topic indices) for easy array mapping
   const mapTopicToIndices = (topic) => {
@@ -23,18 +20,22 @@ export default function QuestionPage({ Questions }) {
     }
   };
 
+  let questionObj = Questions[mapTopicToIndices(category)][index]; //each question (each object inside a topic array)
+
   //show score output page if user answers all questions (index > 3) => score = score/4
   {
-    if (index > 3) {
+    if (!questionObj) {
       return (
-        <h1>
-          Game over! Your score is: {score} {"/"}{" "}
-          {Questions[mapTopicToIndices(category)].length}
-        </h1>
+        <div className="FinishQuizOutput">
+          <h1 id="OutputScore">
+            Game over! Your score is: {score} {"/"}{" "}
+            {Questions[mapTopicToIndices(category)].length}
+          </h1>
+          <button onClick={() => Navigate()}>Another Quiz!</button>
+        </div>
       );
     }
   }
-  let questionObj = Questions[mapTopicToIndices(category)][index]; //each question (each object inside a topic array)
 
   //when user selects an answer out of the possible answers
   function handleAnswerSelect(event) {
