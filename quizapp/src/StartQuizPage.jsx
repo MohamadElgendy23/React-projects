@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import QuizQuestions from "./QuizQuestions";
 
 //this component contains the start page (front page) for the quiz app
 export default function StartQuizPage() {
