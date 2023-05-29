@@ -6,16 +6,7 @@ import Question from "./Question";
 export default function QuestionPage({ Questions }) {
   const { name, category } = useParams(); //gets params from params passed into the path (format is :name && :category)
   const [score, setScore] = useState(0); //keeps track of the score out of 4 (4 questions) for each topic.
-  const [index, setIndex] = useState(0);
-  let questionObj = Questions[mapTopicToIndices(category)][index];
-
-  //when user selects an answer out of the possible answers
-  function handleAnswerSelect(event) {
-    if (event.target.value === questionObj.answer) {
-      setScore((score) => score + 1);
-    }
-    setIndex((index) => index + 1);
-  }
+  const [index, setIndex] = useState(0); //keeps track of the index (question index in the array) (index: 0-3)
 
   //maps topic/category to indices for easy array mapping
   const mapTopicToIndices = (topic) => {
@@ -28,6 +19,16 @@ export default function QuestionPage({ Questions }) {
         return 2;
     }
   };
+
+  let questionObj = Questions[mapTopicToIndices(category)][index]; //each question (each object inside a topic array)
+
+  //when user selects an answer out of the possible answers
+  function handleAnswerSelect(event) {
+    if (event.target.value === questionObj.answer) {
+      setScore((score) => score + 1);
+    }
+    setIndex((index) => index + 1);
+  }
 
   return (
     <>
