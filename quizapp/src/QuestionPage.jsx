@@ -21,7 +21,6 @@ export default function QuestionPage({ Questions }) {
   };
 
   let questionObj = Questions[mapTopicToIndices(category)][index]; //each question (each object inside a topic array)
-
   //when user selects an answer out of the possible answers
   function handleAnswerSelect(event) {
     //answer choice is the right answer
