@@ -12,11 +12,11 @@ export default function StartQuizPage() {
   //handle page navigation using the path for each topic
   function handleNavigation() {
     if (topic === "Computer Science") {
-      navigate(`quizquestions/${topic}/${QuizQuestions[0][0].id}`);
+      navigate(`quizquestions/${name}/${topic}/${QuizQuestions[0][0].id}`);
     } else if (topic === "Math") {
-      navigate(`quizquestions/${topic}/${QuizQuestions[1][0].id}`);
+      navigate(`quizquestions/${name}/${topic}/${QuizQuestions[1][0].id}`);
     } else {
-      navigate(`quizquestions/${topic}/${QuizQuestions[2][0].id}`);
+      navigate(`quizquestions/${name}/${topic}/${QuizQuestions[2][0].id}`);
     }
   }
   return (
@@ -34,7 +34,7 @@ export default function StartQuizPage() {
           id="EnterName"
           type="text"
           value={name}
-          placeholder="Enter Your Name"
+          placeholder="Enter First and Last Name"
           onChange={(e) => setName(e.target.value)}
         ></input>
         <br></br>

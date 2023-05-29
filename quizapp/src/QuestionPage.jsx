@@ -4,15 +4,16 @@ import Question from "./Question";
 
 //the question page of the quiz app. contains the User information and selected information as well as the question (from question.jsx)
 export default function QuestionPage({ Questions }) {
+  const { name, category, id } = useParams(); //gets params from params passed into the path (format is :name && :category && :id)
   const [score, setScore] = useState(""); //keeps track of the score out of 4 (4 questions) for each topic.
-  const { category, id } = useParams(); //gets params from params passed into the path (format is :category && :id)
+
   return (
     <>
       <h1 id="QuizApp">Welcome to the Quiz App!</h1>
-      <label className="WelcomeName">Mohamad Elgendy</label>
+      <label className="WelcomeName">{name}</label>
       <h1 id="SelectedTopic">Topic: {category} </h1>
-      <h1 id="Score">Score: {score}</h1>
-      <Question Questions={Questions} Category={category} />
+      <h1 id="Score">Score: {score} </h1>
+      <Question Questions={Questions} Category={category} ID={id} />
     </>
   );
 }
