@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Question from "./Question";
+import { useNavigate } from "react-router-dom";
 
 //the question page of the quiz app. contains the User information and selected information as well as the question (from question.jsx)
 export default function QuestionPage({ Questions }) {
@@ -8,6 +9,7 @@ export default function QuestionPage({ Questions }) {
   const [score, setScore] = useState(0); //keeps track of the score out of 4 (4 questions) for each topic.
   const [index, setIndex] = useState(0); //keeps track of the index (question index in the array) (index: 0-3)
 
+  const navigate = useNavigate();
   //maps topic/category to indices (topic indices) for easy array mapping
   const mapTopicToIndices = (topic) => {
     switch (topic) {
@@ -20,7 +22,12 @@ export default function QuestionPage({ Questions }) {
     }
   };
 
+  //navigate to game over page if user answers all questions (index > 3)
+  {
+    index > 3 && navigate("/gameover");
+  }
   let questionObj = Questions[mapTopicToIndices(category)][index]; //each question (each object inside a topic array)
+
   //when user selects an answer out of the possible answers
   function handleAnswerSelect(event) {
     //answer choice is the right answer
@@ -29,6 +36,8 @@ export default function QuestionPage({ Questions }) {
     }
     setIndex((index) => index + 1);
   }
+
+  //gets the score of the user after user finishes answering all questions => (score/4). used in gameoverpage.jsx
 
   return (
     <>
