@@ -10,6 +10,7 @@ export default function QuestionPage({ Questions }) {
   const [index, setIndex] = useState(0); //keeps track of the index (question index in the array) (index: 0-3)
 
   const navigate = useNavigate();
+
   //maps topic/category to indices (topic indices) for easy array mapping
   const mapTopicToIndices = (topic) => {
     switch (topic) {
@@ -22,14 +23,16 @@ export default function QuestionPage({ Questions }) {
     }
   };
 
-  //navigate to game over page if user answers all questions (index > 3)
+  //show score output page if user answers all questions (index > 3) => score = score/4
   {
-    index > 3 && (
-      <h1>
-        `Game over! Your score is $
-        {score / Questions[mapTopicToIndices(category)].length}`
-      </h1>
-    );
+    if (index > 3) {
+      return (
+        <h1>
+          Game over! Your score is: {score} {"/"}{" "}
+          {Questions[mapTopicToIndices(category)].length}
+        </h1>
+      );
+    }
   }
   let questionObj = Questions[mapTopicToIndices(category)][index]; //each question (each object inside a topic array)
 
