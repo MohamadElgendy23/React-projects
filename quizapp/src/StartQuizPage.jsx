@@ -48,7 +48,7 @@ export default function StartQuizPage() {
         <br></br>
         <br></br>
         <br></br>
-        <button id="Submit" disabled={!topic && "true"}>
+        <button id="Submit" disabled={(!topic || !name) && "true"}>
           Start Quiz!
         </button>
       </form>
