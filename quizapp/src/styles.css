@@ -12,7 +12,9 @@ body {
   font-style: italic;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
-
+.QuizAppContainer {
+  
+}
 img {
   position: relative;
   top:-70px;

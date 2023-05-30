@@ -15,7 +15,7 @@ export default function StartQuizPage() {
     navigate(`quizquestions/${topic}`);
   };
   return (
-    <>
+    <div className="QuizAppContainer">
       <h1 id="QuizApp">Welcome to the Quiz App!</h1>
       <img
         src="https://www.icomedia.eu/wp-content/uploads/2017/06/Its-Quiz-Time-Logo.png"
@@ -52,6 +52,6 @@ export default function StartQuizPage() {
           Start Quiz!
         </button>
       </form>
-    </>
+    </div>
   );
 }
