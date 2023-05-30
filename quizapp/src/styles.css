@@ -157,3 +157,12 @@ img {
   font-size: 20px;
   width: 20%;
 }
+
+.FinishQuizOutputContainer img{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 20%;  
+  width: 20%;
+}

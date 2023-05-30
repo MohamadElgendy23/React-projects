@@ -46,7 +46,8 @@ export default function QuestionPage({ Questions }) {
 
     return (
       <div className="FinishQuizOutputContainer">
-        <h1>Game over! Your score is: {scorePercentage}</h1>
+        <img src="https://i.ytimg.com/vi/rExtXUWRTu4/hqdefault.jpg"></img>
+        <h1>Quiz over! Your score is: {scorePercentage}</h1>
         <button onClick={() => navigate("/")}>Start Another Quiz!</button>
       </div>
     );
