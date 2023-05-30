@@ -35,7 +35,7 @@ export default function QuestionPage({ Questions }) {
 
   let questionObj = Questions[mapTopicToIndices(category)][index]; //each question (each object inside a topic array)
 
-  //show score output page if user answers all questions (questionObj is undefined). final score in %.
+  //show score output page if user answers all questions (questionObj is undefined). final score is % based out of 100%.
   if (!questionObj) {
     let scorePercentage = "";
     scorePercentage =
@@ -43,10 +43,19 @@ export default function QuestionPage({ Questions }) {
         (score / Questions[mapTopicToIndices(category)].length) *
         100
       ).toString() + "%";
+    let imageSrc = "";
+    //congratulate user for getting all the questions right :)
+    if (scorePercentage === "100%") {
+      imageSrc =
+        "http://www.desicomments.com/wp-content/uploads/2017/02/Lovely-Image-Of-Congratulations.jpg";
+    } else {
+      imageSrc =
+        "https://sd.keepcalm-o-matic.co.uk/i/keep-calm-it-s-the-end-of-the-quiz.png";
+    }
 
     return (
       <div className="FinishQuizOutputContainer">
-        <img src="https://i.ytimg.com/vi/rExtXUWRTu4/hqdefault.jpg"></img>
+        <img src={imageSrc}></img>
         <h1>Quiz over! Your score is: {scorePercentage}</h1>
         <button onClick={() => navigate("/")}>Start Another Quiz!</button>
       </div>
