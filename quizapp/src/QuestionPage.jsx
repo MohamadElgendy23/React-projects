@@ -27,14 +27,14 @@ export default function QuestionPage({ Questions }) {
   //show score output page if user answers all questions (questionObj is undefined). final score = score/4
   if (!questionObj) {
     let calcScore = ""; //out of 100% => not needed but better formats
-    if (score === 4) {
+    if (score === Questions[mapTopicToIndices(category)].length) {
       //treating as if 4 questions only (instance) because it is ! :)
       calcScore = "100%";
-    } else if (score === 3) {
+    } else if (score === Questions[mapTopicToIndices(category)].length - 1) {
       calcScore = "75%";
-    } else if (score === 2) {
+    } else if (score === Questions[mapTopicToIndices(category)].length - 2) {
       calcScore = "50%";
-    } else if (score === 1) {
+    } else if (score === Questions[mapTopicToIndices(category)].length - 3) {
       calcScore = "25%";
     } else {
       calcScore = "0%";
