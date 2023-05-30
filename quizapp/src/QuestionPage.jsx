@@ -28,6 +28,7 @@ export default function QuestionPage({ Questions }) {
   if (!questionObj) {
     let calcScore = ""; //out of 100% => not needed but better formats
     if (score === 4) {
+      //treating as if 4 questions only (instance) because it is ! :)
       calcScore = "100%";
     } else if (score === 3) {
       calcScore = "75%";

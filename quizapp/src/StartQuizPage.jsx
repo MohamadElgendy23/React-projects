@@ -7,17 +7,6 @@ export default function StartQuizPage() {
   const [topic, setTopic] = useState(""); //for the user's selected quiz topic
 
   const navigate = useNavigate(); //used for navigating between pages
-
-  //handle page navigation using the path for each topic
-  function handleNavigation() {
-    if (topic === "Computer Science") {
-      navigate(`quizquestions/${name}/${topic}`);
-    } else if (topic === "Math") {
-      navigate(`quizquestions/${name}/${topic}`);
-    } else {
-      navigate(`quizquestions/${name}/${topic}`);
-    }
-  }
   return (
     <>
       <h1 id="QuizApp">Welcome to the Quiz App!</h1>
@@ -26,7 +15,10 @@ export default function StartQuizPage() {
         loading="lazy"
       ></img>
 
-      <form onSubmit={handleNavigation} className="StartQuizForm">
+      <form
+        onSubmit={() => navigate(`quizquestions/${name}/${topic}`)}
+        className="StartQuizForm"
+      >
         <h1>Quiz Settings</h1>
         <br></br>
         <input
