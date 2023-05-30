@@ -21,7 +21,6 @@ export default function StartQuizPage() {
         src="https://www.icomedia.eu/wp-content/uploads/2017/06/Its-Quiz-Time-Logo.png"
         loading="lazy"
       ></img>
-
       <form onSubmit={handleQuizStart} className="StartQuizForm">
         <h1>Quiz Settings</h1>
         <br></br>

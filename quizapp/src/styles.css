@@ -2,9 +2,7 @@ body {
   background-image: linear-gradient(to right, aqua, rgb(13, 222, 13));
 
 }
-
-#QuizApp {
-  text-align:center;
+#QuizApp{
   background: linear-gradient(to right, rgb(0, 153, 255) 25%, rgb(194, 20, 20) 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -12,27 +10,33 @@ body {
   font-style: italic;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
-.QuizAppContainer {
-  
-}
+
 img {
-  position: relative;
-  top:-70px;
-  right: -630px;
-  width: 555px;
-  height: 500px;
+  width:555px;
+  height:500px;
+}
+
+.QuizAppContainer {
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
 }
 
 .StartQuizForm {
-  position: relative;
-  top:-130px;
-  right: -800px;
-  width: 555px;
-  height: 500px;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
 }
 
-.StartQuizForm > h1 {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.StartQuizForm button,
+.StartQuizForm input,
+.StartQuizForm select 
+{
+  width: 80%;
+  height: 40px;
+  font-size: 24px;
 }
 
 #EnterName {
