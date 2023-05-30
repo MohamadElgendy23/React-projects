@@ -52,8 +52,8 @@ export default function QuestionPage({ Questions }) {
     );
   }
   return (
-    <>
-      <h1 id="QuizApp">Welcome to the Quiz App!</h1>
+    <div className="QuestionPageContainer">
+      <h1 id="WelcomeQuizApp">Welcome to the Quiz App!</h1>
       <label className="WelcomeName">{name}</label>
       <h1 id="SelectedTopic">Topic: {category} </h1>
       <h1 id="Score">Score: {score} </h1>
@@ -61,6 +61,6 @@ export default function QuestionPage({ Questions }) {
         questionObj={questionObj}
         handleAnswerSelect={handleAnswerSelect}
       />
-    </>
+    </div>
   );
 }

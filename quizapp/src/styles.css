@@ -2,7 +2,7 @@ body {
   background-image: linear-gradient(to right, aqua, rgb(13, 222, 13));
 
 }
-#QuizApp{
+#WelcomeQuizApp{
   background: linear-gradient(to right, rgb(0, 153, 255) 25%, rgb(194, 20, 20) 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -61,11 +61,27 @@ img {
   
 }
 
+/* 
+ * QuestionPage.jsx 
+ */
+ .QuestionPageContainer {
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+ }
+
+ /*Delete later */
+ .WelcomeName {
+  font-size: 64px;
+  color:rgb(194, 20, 20);
+  border: 8px dotted red;
+  border-radius: 10%;
+  padding: 16px;
+}
+
 .WelcomeName {
   color:rgb(10, 61, 244);
-  position: relative;
-  top:40px;
-  right: -710px;
   font-size: xx-large;
   font-weight:bolder;
   font-style: italic;
@@ -78,34 +94,24 @@ img {
 }
 
 #SelectedTopic {
-  position: relative;
-  bottom:-70px;
-  right: -325px;
-  width: 510px;
-  height: 50px;
-  text-align: center;
-  font-size: xx-large;
+  display: flex;
+  gap: 200px;
 }
 
 #Score {
-  position: relative;
-  right: -900px;
-  width: 510px;
-  height: 50px;
-  text-align: center;
-  font-size: xx-large;
+  display: flex;
+  gap: 200px;
 }
 
-.QuestionForm {
-  position: relative;
-  top:50px;
-  right: -710px;
+.QuestionFormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.QuestionForm > h1 {
-  position: relative;
-  top:15px;
-  right: -100px;
+.QuestionForm h1 {
+  
 }
 
 .QuestionForm > p {

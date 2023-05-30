@@ -2,7 +2,7 @@
 
 export default function Question({ questionObj, handleAnswerSelect }) {
   return (
-    <div className="QuestionForm">
+    <div className="QuestionFormContainer">
       <h1>Question {questionObj.id}:</h1>
       <p>{questionObj.question}</p>
       {questionObj.answerChoices.map((answerChoice, index) => {
