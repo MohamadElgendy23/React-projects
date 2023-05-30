@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Question from "./Question";
+import confetti from "./Confetti";
 
 //the question page of the quiz app. contains the User information and selected information as well as the question (from question.jsx)
 export default function QuestionPage({ Questions }) {
@@ -44,7 +45,7 @@ export default function QuestionPage({ Questions }) {
         100
       ).toString() + "%";
     let imageSrc = "";
-    //congratulate user for getting all the questions right :)
+    //congratulate user for getting all the questions right, also use confetti effect from imported confetti class
     if (scorePercentage === "100%") {
       imageSrc =
         "http://www.desicomments.com/wp-content/uploads/2017/02/Lovely-Image-Of-Congratulations.jpg";
