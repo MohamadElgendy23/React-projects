@@ -34,7 +34,12 @@ export default function StartQuizPage() {
         ></input>
         <br></br>
         <br></br>
-        <select id="Topic" onChange={(e) => setTopic(e.target.value)}>
+        <select
+          id="Topic"
+          onChange={(e) => {
+            setTopic(e.target.value);
+          }}
+        >
           <option>Select Quiz Topic</option>
           <option>Computer Science</option>
           <option>Math</option>
@@ -43,7 +48,9 @@ export default function StartQuizPage() {
         <br></br>
         <br></br>
         <br></br>
-        <button id="Submit">Start Quiz!</button>
+        <button id="Submit" disabled={!topic && "true"}>
+          Start Quiz!
+        </button>
       </form>
     </>
   );
