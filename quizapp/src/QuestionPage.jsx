@@ -45,12 +45,13 @@ export default function QuestionPage({ Questions }) {
       ).toString() + "%";
 
     return (
-      <div className="FinishQuizOutput">
-        <h1 id="OutputScore">Game over! Your score is: {scorePercentage}</h1>
+      <div className="FinishQuizOutputContainer">
+        <h1>Game over! Your score is: {scorePercentage}</h1>
         <button onClick={() => navigate("/")}>Start Another Quiz!</button>
       </div>
     );
   }
+
   return (
     <div className="QuestionPageContainer">
       <h1 id="WelcomeQuizApp">Welcome to the Quiz App!</h1>
