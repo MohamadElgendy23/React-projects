@@ -26,12 +26,21 @@ export default function QuestionPage({ Questions }) {
 
   //show score output page if user answers all questions (questionObj is undefined). final score = score/4
   if (!questionObj) {
+    let calcScore = ""; //out of 100% => not needed but better formats
+    if (score === 4) {
+      calcScore = "100%";
+    } else if (score === 3) {
+      calcScore = "75%";
+    } else if (score === 2) {
+      calcScore = "50%";
+    } else if (score === 1) {
+      calcScore = "25%";
+    } else {
+      calcScore = "0%";
+    }
     return (
       <div className="FinishQuizOutput">
-        <h1 id="OutputScore">
-          Game over! Your score is: {score}/
-          {Questions[mapTopicToIndices(category)].length}
-        </h1>
+        <h1 id="OutputScore">Game over! Your score is: {calcScore}</h1>
         <button onClick={() => navigate("/")}>Start Another Quiz!</button>
       </div>
     );
