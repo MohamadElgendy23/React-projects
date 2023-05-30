@@ -3,10 +3,17 @@ import { useNavigate } from "react-router-dom";
 
 //this component contains the start page (front page) for the quiz app
 export default function StartQuizPage() {
-  const [name, setName] = useState(""); //for the user's inputted name
+  const [name, setName] = useState(
+    localStorage.getItem("firstandlastname") ?? ""
+  ); //for the user's inputted name
   const [topic, setTopic] = useState(""); //for the user's selected quiz topic
-
   const navigate = useNavigate(); //used for navigating between pages
+
+  //saves the name in local storage and then navigates to the question page.
+  const handleQuizStart = () => {
+    localStorage.setItem("firstandlastname", name);
+    navigate(`quizquestions/${topic}`);
+  };
   return (
     <>
       <h1 id="QuizApp">Welcome to the Quiz App!</h1>
@@ -15,10 +22,7 @@ export default function StartQuizPage() {
         loading="lazy"
       ></img>
 
-      <form
-        onSubmit={() => navigate(`quizquestions/${name}/${topic}`)}
-        className="StartQuizForm"
-      >
+      <form onSubmit={handleQuizStart} className="StartQuizForm">
         <h1>Quiz Settings</h1>
         <br></br>
         <input

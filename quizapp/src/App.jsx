@@ -9,7 +9,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<StartQuizPage />} />
       <Route
-        path="quizquestions/:name/:category"
+        path="quizquestions/:category"
         element={<QuestionPage Questions={QuizQuestions} />}
       />
     </Routes>
