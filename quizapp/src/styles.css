@@ -16,6 +16,9 @@ img {
   height:500px;
 }
 
+/* 
+ * StartQuizPage.jsx 
+ */
 .QuizAppContainer {
   display:flex;
   flex-direction:column;
@@ -30,44 +33,32 @@ img {
   align-items: center;
 }
 
-.StartQuizForm button,
-.StartQuizForm input,
+.StartQuizForm input {
+  width: 105%;
+  height: 40px;
+  font-size: 24px;
+  text-align: center;
+}
+
 .StartQuizForm select 
 {
   width: 80%;
   height: 40px;
   font-size: 24px;
+  text-align: center;
 }
 
-#EnterName {
-  position: relative;
-  bottom:15px;
-  right: 150px;
-  width: 500px;
-  height: 50px;
+.StartQuizForm button {
+  width: 80%;
+  height: 40px;
+  font-size: 24px;
   text-align: center;
-  font-size: larger;
+  background-color: green;
 }
 
-#Topic {
-  position: relative;
-  bottom:15px;
-  right: 150px;
-  width: 510px;
-  height: 50px;
-  text-align: center;
-  font-size: larger;
-}
-
-#Submit {
-  background-color: rgb(59, 172, 59);
-  position: relative;
-  bottom:15px;
-  right: 150px;
-  width: 510px;
-  height: 50px;
-  text-align: center;
-  font-size: larger;
+#QuizSettings {
+  font-size: 48px;
+  
 }
 
 .WelcomeName {

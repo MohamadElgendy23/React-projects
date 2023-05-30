@@ -22,7 +22,7 @@ export default function StartQuizPage() {
         loading="lazy"
       ></img>
       <form onSubmit={handleQuizStart} className="StartQuizForm">
-        <h1>Quiz Settings</h1>
+        <h1 id="QuizSettings">Quiz Settings</h1>
         <br></br>
         <input
           id="EnterName"
@@ -47,7 +47,7 @@ export default function StartQuizPage() {
         <br></br>
         <br></br>
         <br></br>
-        <button id="Submit" disabled={(!topic || !name) && "true"}>
+        <button id="Submit" disabled={(!topic || !name) && true}>
           Start Quiz!
         </button>
       </form>
