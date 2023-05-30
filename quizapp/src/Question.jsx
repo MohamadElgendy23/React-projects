@@ -8,8 +8,8 @@ export default function Question({ questionObj, handleAnswerSelect }) {
       {questionObj.answerChoices.map((answerChoice, index) => {
         return (
           <button
-            className="answerchoicesbuttons"
             key={index}
+            className="answerchoicesbuttons"
             onClick={handleAnswerSelect}
           >
             {answerChoice}

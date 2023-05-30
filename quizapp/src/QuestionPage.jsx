@@ -24,19 +24,17 @@ export default function QuestionPage({ Questions }) {
 
   let questionObj = Questions[mapTopicToIndices(category)][index]; //each question (each object inside a topic array)
 
-  //show score output page if user answers all questions (index > 3) => score = score/4
-  {
-    if (!questionObj) {
-      return (
-        <div className="FinishQuizOutput">
-          <h1 id="OutputScore">
-            Game over! Your score is: {score} {"/"}{" "}
-            {Questions[mapTopicToIndices(category)].length}
-          </h1>
-          <button onClick={() => navigate("/")}>Another Quiz!</button>
-        </div>
-      );
-    }
+  //show score output page if user answers all questions (questionObj is undefined). final score = score/4
+  if (!questionObj) {
+    return (
+      <div className="FinishQuizOutput">
+        <h1 id="OutputScore">
+          Game over! Your score is: {score}/
+          {Questions[mapTopicToIndices(category)].length}
+        </h1>
+        <button onClick={() => navigate("/")}>Start Another Quiz!</button>
+      </div>
+    );
   }
 
   //when user selects an answer out of the possible answers
@@ -47,7 +45,6 @@ export default function QuestionPage({ Questions }) {
     }
     setIndex((index) => index + 1);
   }
-
   return (
     <>
       <h1 id="QuizApp">Welcome to the Quiz App!</h1>
