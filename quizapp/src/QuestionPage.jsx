@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Question from "./Question";
 import ScoreOutputPage from "./ScoreOutputPage";
@@ -7,6 +7,7 @@ export default function QuestionPage({ Questions }) {
   const { category } = useParams(); //gets params fromparams passed into the path (format is :name && :category)
   const [score, setScore] = useState(0); //keeps track of the score out of 4 (4 questions) for each topic.
   const [index, setIndex] = useState(0); //keeps track of the index (question index in the array) (index: 0-3)
+  const [time, setTime] = useState(5); //5 seconds to answer each question
 
   const name = localStorage.getItem("firstandlastname") ?? "";
 
@@ -22,6 +23,18 @@ export default function QuestionPage({ Questions }) {
     }
   };
 
+  useEffect(() => {
+    const timerID = setInterval(() => {
+      if (time < 5) {
+        return () => {
+          clearInterval(timerID);
+        };
+      } else {
+        setTime((time) => time - 1);
+      }
+    }, 1000);
+  }, [time]);
+
   //when user selects an answer out of the possible answers
   const handleAnswerSelect = (event) => {
     //answer choice is the right answer
@@ -29,6 +42,7 @@ export default function QuestionPage({ Questions }) {
       setScore((score) => score + 1);
     }
     setIndex((index) => index + 1);
+    setTime(5); //reset time
   };
 
   let questionObj = Questions[mapTopicToIndices(category)][index]; //each question (each object inside a topic array)
@@ -40,20 +54,15 @@ export default function QuestionPage({ Questions }) {
         (score / Questions[mapTopicToIndices(category)].length) *
         100
       ).toString() + "%";
-    return (
-      <ScoreOutputPage
-        Questions={Questions}
-        scorePercentage={scorePercentage}
-      />
-    );
+    return <ScoreOutputPage scorePercentage={scorePercentage} />;
   }
-
   return (
     <div className="QuestionPageContainer">
       <h1 id="WelcomeQuizApp">Welcome to the Quiz App!</h1>
       <label className="WelcomeName">{name}</label>
       <h1 id="SelectedTopic">Topic: {category} </h1>
-      <h1 id="Score">Score: {score} </h1>
+      <h1 id="TimeLeft">Time Left: {time} seconds</h1>
+      <h1 id="Score">Score: {score}</h1>
       <Question
         questionObj={questionObj}
         handleAnswerSelect={handleAnswerSelect}
