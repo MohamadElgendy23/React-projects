@@ -49,6 +49,7 @@ export default function QuestionPage({ Questions }) {
     if (scorePercentage === "100%") {
       imageSrc =
         "http://www.desicomments.com/wp-content/uploads/2017/02/Lovely-Image-Of-Congratulations.jpg";
+      confetti.start();
     } else {
       imageSrc =
         "https://sd.keepcalm-o-matic.co.uk/i/keep-calm-it-s-the-end-of-the-quiz.png";
@@ -56,9 +57,16 @@ export default function QuestionPage({ Questions }) {
 
     return (
       <div className="FinishQuizOutputContainer">
-        <img src={imageSrc}></img>
+        <img src={imageSrc} loading="lazy"></img>
         <h1>Quiz over! Your score is: {scorePercentage}</h1>
-        <button onClick={() => navigate("/")}>Start Another Quiz!</button>
+        <button
+          onClick={() => {
+            confetti.stop();
+            navigate("/");
+          }}
+        >
+          Start Another Quiz!
+        </button>
       </div>
     );
   }
