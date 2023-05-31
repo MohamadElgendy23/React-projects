@@ -14,6 +14,7 @@ export default function StartQuizPage() {
     localStorage.setItem("firstandlastname", name);
     navigate(`quizquestions/${topic}`);
   };
+
   return (
     <div className="QuizAppContainer">
       <h1 id="WelcomeQuizApp">Welcome to the Quiz App!</h1>

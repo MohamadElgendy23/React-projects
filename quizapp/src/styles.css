@@ -106,7 +106,6 @@ img {
 /* 
  * Question.jsx 
  */
-
 .QuestionFormContainer {
   display: flex;
   flex-direction: column;
@@ -139,7 +138,6 @@ img {
 /* 
  * Output score page
  */
-
 .FinishQuizOutputContainer {
   display: flex;
   flex-direction: column;
