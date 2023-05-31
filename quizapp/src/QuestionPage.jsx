@@ -22,7 +22,6 @@ export default function QuestionPage({ Questions }) {
         return 2;
     }
   };
-
   //timer logic
   let intervalID = null;
   useEffect(() => {
@@ -32,17 +31,17 @@ export default function QuestionPage({ Questions }) {
         clearInterval(intervalID);
       };
     }
-    intervalID = setInterval(() => {
-      if (!secondsLeft) {
-        return () => {
-          clearInterval(intervalID);
-        };
-      } else {
+    intervalID = setInterval(function () {
+      if (secondsLeft) {
         secondsLeft--;
         setTime(secondsLeft);
+      } else {
+        clearInterval(intervalID);
+        setIndex((index) => index + 1);
+        setTime(5);
       }
     }, 1000);
-  });
+  }, time);
 
   //when user selects an answer out of the possible answers
   const handleAnswerSelect = (event) => {
