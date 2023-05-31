@@ -35,12 +35,15 @@ export default function QuestionPage({ Questions }) {
 
   //show score output page if user answers all questions (questionObj is undefined). final score is % based out of 100%.
   if (!questionObj) {
+    const scorePercentage =
+      (
+        (score / Questions[mapTopicToIndices(category)].length) *
+        100
+      ).toString() + "%";
     return (
       <ScoreOutputPage
         Questions={Questions}
-        mapTopicToIndices={mapTopicToIndices}
-        score={score}
-        category={category}
+        scorePercentage={scorePercentage}
       />
     );
   }

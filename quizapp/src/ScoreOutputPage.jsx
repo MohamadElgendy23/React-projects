@@ -1,17 +1,8 @@
 import confetti from "./Confetti";
 import { useNavigate } from "react-router-dom";
 
-export default function ScoreOutputPage({
-  Questions,
-  mapTopicToIndices,
-  score,
-  category,
-}) {
+export default function ScoreOutputPage({ scorePercentage }) {
   const navigate = useNavigate(); //used to navigate page
-  let scorePercentage = "";
-  scorePercentage =
-    ((score / Questions[mapTopicToIndices(category)].length) * 100).toString() +
-    "%";
   let imageSrc = "";
   //congratulate user for getting all the questions right, also use confetti effect from imported confetti class
   if (scorePercentage === "100%") {
