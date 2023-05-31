@@ -23,17 +23,26 @@ export default function QuestionPage({ Questions }) {
     }
   };
 
+  //timer logic
+  let intervalID = null;
   useEffect(() => {
-    const timerID = setInterval(() => {
-      if (time < 5) {
+    let secondsLeft = 5;
+    if (intervalID !== null) {
+      return () => {
+        clearInterval(intervalID);
+      };
+    }
+    intervalID = setInterval(() => {
+      if (!secondsLeft) {
         return () => {
-          clearInterval(timerID);
+          clearInterval(intervalID);
         };
       } else {
-        setTime((time) => time - 1);
+        secondsLeft--;
+        setTime(secondsLeft);
       }
     }, 1000);
-  }, [time]);
+  });
 
   //when user selects an answer out of the possible answers
   const handleAnswerSelect = (event) => {
