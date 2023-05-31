@@ -61,7 +61,7 @@ export default function QuestionPage({ Questions }) {
         <h1>Quiz over! Your score is: {scorePercentage}</h1>
         <button
           onClick={() => {
-            confetti.stop();
+            confetti.remove();
             navigate("/");
           }}
         >
