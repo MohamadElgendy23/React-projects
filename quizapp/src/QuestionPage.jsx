@@ -50,7 +50,7 @@ export default function QuestionPage({ Questions }) {
       setScore((score) => score + 1);
     }
     setIndex((index) => index + 1);
-    setTime(5); //reset time
+    setTime(5);
   };
 
   let questionObj = Questions[mapTopicToIndices(category)][index]; //each question (each object inside a topic array)
