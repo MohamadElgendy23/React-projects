@@ -11,8 +11,10 @@ export default function QuestionPage({ Questions }) {
 
   const name = localStorage.getItem("firstandlastname") ?? "";
   //timer logic
-  let intervalID = null;
-  useEffect(() => {
+  let intervalID = null; //for the timer interval, used throughout this class.
+
+  //timer logic
+  const handleTimer = () => {
     let secondsLeft = 5;
     if (intervalID !== null) {
       return () => {
@@ -29,7 +31,9 @@ export default function QuestionPage({ Questions }) {
         setTime(5);
       }
     }, 1000);
-  }, time);
+  };
+
+  useEffect(handleTimer, Array.from(time)); //handle every time the time changes
 
   //when user selects an answer out of the possible answers
   const handleAnswerSelect = (event) => {
@@ -39,6 +43,7 @@ export default function QuestionPage({ Questions }) {
     }
     setIndex((index) => index + 1);
     setTime(5);
+    useEffect(handleTimer, Array.from(time));
   };
 
   let questionObj = Questions[category][index]; //each question (each object inside a topic array)
