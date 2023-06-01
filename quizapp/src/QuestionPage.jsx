@@ -10,18 +10,6 @@ export default function QuestionPage({ Questions }) {
   const [time, setTime] = useState(5); //5 seconds to answer each question
 
   const name = localStorage.getItem("firstandlastname") ?? "";
-
-  //maps topic/category to indices (topic indices) for easy array mapping
-  const mapTopicToIndices = (topic) => {
-    switch (topic) {
-      case "Computer Science":
-        return 0;
-      case "Math":
-        return 1;
-      case "Geography":
-        return 2;
-    }
-  };
   //timer logic
   let intervalID = null;
   useEffect(() => {
@@ -36,8 +24,8 @@ export default function QuestionPage({ Questions }) {
         secondsLeft--;
         setTime(secondsLeft);
       } else {
-        clearInterval(intervalID);
         setIndex((index) => index + 1);
+        clearInterval(intervalID);
         setTime(5);
       }
     }, 1000);
@@ -53,15 +41,12 @@ export default function QuestionPage({ Questions }) {
     setTime(5);
   };
 
-  let questionObj = Questions[mapTopicToIndices(category)][index]; //each question (each object inside a topic array)
+  let questionObj = Questions[category][index]; //each question (each object inside a topic array)
 
   //show score output page if user answers all questions (questionObj is undefined). final score is % based out of 100%.
   if (!questionObj) {
     const scorePercentage =
-      (
-        (score / Questions[mapTopicToIndices(category)].length) *
-        100
-      ).toString() + "%";
+      ((score / Questions[category].length) * 100).toString() + "%";
     return <ScoreOutputPage scorePercentage={scorePercentage} />;
   }
   return (
