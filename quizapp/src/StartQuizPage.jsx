@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import QuizQuestions from "./QuizQuestions";
 
 //this component contains the start page (front page) for the quiz app
 export default function StartQuizPage() {
@@ -41,9 +42,9 @@ export default function StartQuizPage() {
           }}
         >
           <option>Select Quiz Topic</option>
-          <option>Computer Science</option>
-          <option>Math</option>
-          <option>Geography</option>
+          {Object.keys(QuizQuestions).map((key) => {
+            return <option>{key}</option>;
+          })}
         </select>
         <br></br>
         <br></br>
