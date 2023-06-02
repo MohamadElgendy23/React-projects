@@ -16,24 +16,16 @@ export default function QuestionPage({ Questions }) {
   //timer logic
   const handleTimer = () => {
     let secondsLeft = 5;
-    if (intervalID !== null) {
-      return () => {
-        clearInterval(intervalID);
-      };
-    }
     intervalID = setInterval(function () {
-      if (secondsLeft) {
-        secondsLeft--;
-        setTime(secondsLeft);
-      } else {
-        setIndex((index) => index + 1);
+      setTime(secondsLeft - 1);
+      if (!secondsLeft) {
         clearInterval(intervalID);
         setTime(5);
       }
     }, 1000);
   };
 
-  useEffect(handleTimer, Array.from(time)); //handle every time the time changes
+  useEffect(handleTimer, [index]); //handle every time the time changes
 
   //when user selects an answer out of the possible answers
   const handleAnswerSelect = (event) => {
@@ -43,7 +35,6 @@ export default function QuestionPage({ Questions }) {
     }
     setIndex((index) => index + 1);
     setTime(5);
-    useEffect(handleTimer, Array.from(time));
   };
 
   let questionObj = Questions[category][index]; //each question (each object inside a topic array)
