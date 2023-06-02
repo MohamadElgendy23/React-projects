@@ -12,20 +12,26 @@ export default function QuestionPage({ Questions }) {
   const name = localStorage.getItem("firstandlastname") ?? "";
   //timer logic
   let intervalID = null; //for the specified timer interval, used for clearing intervals when needed.
-
   //timer logic
   const handleTimer = () => {
     let secondsLeft = 5;
     intervalID = setInterval(function () {
-      setTime((secondsLeft) => secondsLeft - 1);
-      if (!secondsLeft) {
+      secondsLeft--;
+      setTime(secondsLeft);
+      if (secondsLeft === 0) {
         clearInterval(intervalID);
+        setIndex((index) => index + 1);
         setTime(5);
       }
     }, 1000);
+
+    //clear timer when returned (clean up)
+    return () => {
+      clearInterval(intervalID);
+    };
   };
 
-  useEffect(handleTimer, [index]); //handle every time the time changes
+  useEffect(handleTimer, [index]); //reset the timer whenever the question changes
 
   //when user selects an answer out of the possible answers
   const handleAnswerSelect = (event) => {
