@@ -11,17 +11,17 @@ export default function QuestionPage({ Questions }) {
 
   const name = localStorage.getItem("firstandlastname") ?? "";
   //timer logic
-  let intervalID = null; //for the specified timer interval, used for clearing intervals when needed.
+  let intervalID; //for the specified timer interval, used for clearing intervals when needed.
   //timer logic
   const handleTimer = () => {
-    let secondsLeft = 5;
+    let timeRemaining = 5;
     intervalID = setInterval(function () {
-      secondsLeft--;
-      setTime(secondsLeft);
-      if (secondsLeft === 0) {
+      timeRemaining--;
+      setTime(timeRemaining);
+      if (timeRemaining === 0) {
         clearInterval(intervalID);
-        setIndex((index) => index + 1);
         setTime(5);
+        setIndex((index) => index + 1);
       }
     }, 1000);
 
