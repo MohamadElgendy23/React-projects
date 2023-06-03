@@ -20,7 +20,9 @@ export default function QuestionPage({ Questions }) {
       if (timeRemaining === 0) {
         setTime(5);
         setIndex((index) => index + 1);
-        return;
+        return () => {
+          clearInterval(intervalID);
+        };
       }
       timeRemaining--;
       setTime(timeRemaining);
