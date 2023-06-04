@@ -23,7 +23,7 @@ export default function QuestionPage({ Questions }) {
     intervalID.current = setInterval(() => {
       if (timeRemaining.current === 0) {
         setIndex((index) => index + 1);
-        return; //go to clear interval
+        return; 
       }
       timeRemaining.current--;
       setTime(timeRemaining.current);
