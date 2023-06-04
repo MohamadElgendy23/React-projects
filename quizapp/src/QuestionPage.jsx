@@ -20,10 +20,10 @@ export default function QuestionPage({ Questions }) {
   useEffect(() => {
     setTime(STARTTIME);
     timeRemaining.current = STARTTIME;
-    intervalID.current = setInterval(function () {
+    intervalID.current = setInterval(() => {
       if (timeRemaining.current === 0) {
         setIndex((index) => index + 1);
-        return;
+        return; //go to clear interval
       }
       timeRemaining.current--;
       setTime(timeRemaining.current);
