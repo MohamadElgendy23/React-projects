@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Question from "./Question";
 import ScoreOutputPage from "./ScoreOutputPage";
 
-const STARTTIME = 5; //what second timer starts at
+const STARTTIME = 5; //what the second timer starts at
 //the question page of the quiz app. contains the User information and selected information as well as the question (from question.jsx)
 export default function QuestionPage({ Questions }) {
   const { category } = useParams(); //gets params fromparams passed into the path (format is :name && :category)
@@ -14,7 +14,7 @@ export default function QuestionPage({ Questions }) {
   const name = localStorage.getItem("firstandlastname") ?? "";
   //timer logic
   let intervalID = useRef(null); //for the specified timer interval, used for clearing intervals when needed.
-  let timeRemaining = useRef(STARTTIME); //represents the time remaining for each "state"
+  let timeRemaining = useRef(STARTTIME); //represents the time remaining for each "state" / doesn't change value throughout the whole component 
 
   //timer logic
   useEffect(() => {
